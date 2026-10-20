@@ -101,3 +101,7 @@ Vehicle-Market-Analytics
 ├── images
 ├── docs
 └── README.md
+
+### Limitation
+
+The dataset does not specify the currency used for the vehicle prices. Therefore, all price related analysis is performed using the reported values without applying currency conversion.
