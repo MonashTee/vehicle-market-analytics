@@ -79,3 +79,19 @@ The dataset represents vehicle listings, not confirmed sales. It does not establ
 - Use median prices alongside averages when comparing vehicles, mileage groups and brands because high-priced listings can influence mean prices.
 - Interpret fuel-type and brand comparisons alongside listing counts and vehicle characteristics rather than assuming that any single factor explains price differences.
 - Use the verified findings to guide the selection of meaningful Excel analyses and Power BI dashboard visuals.
+
+## Excel Analysis
+
+Excel was used to complement the SQL and Python analyses through PivotTables, visualisation and statistical formulas making the findings easier to compare and interpret.
+
+### 1. Price Distribution by Accident Status
+A PivotTable and 100% stacked column chart compared price-band distributions across accident-status groups. Approximately 65.3% of listings with reported accident or damage were priced below 25,000, compared with 32.2% of listings marked "None reported". 
+
+Business relevance: This comparison helps explore how reported accident status relates to listing prices. Other factors, such as vehicle age, mileage, make and model, may also explain the differences.
+
+### 2. Price Distribution and Outlier Analysis
+Percentile and IQR calculations were used to summarise price distribution and flag unusual values for further review. The median recorded price was 30,825, and 10,880 listings (5.77%) exceeded the upper IQR threshold of 99,250. These are potential outliers, not confirmed data errors.
+
+Business relevance: This analysis provides a consistent way to flag unusual prices for investigation. A flagged price is not necessarily incorrect; it may reflect a rare or high-value vehicle.
+
+Overall, the Excel analysis demonstrates spreadsheet-based reporting and statistical screening, complementing the deeper SQL and Python analysis without treating listing prices as confirmed selling prices.
