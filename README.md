@@ -6,6 +6,8 @@ This project analyses a used-car listing dataset using SQL Server, Python, Excel
 
 The objective is to examine vehicle listing prices, compare brand and model listing volumes, explore vehicle characteristics, and assess data quality to support used-vehicle market analysis and reporting.
 
+The project combines SQL-based business analysis, Python data cleaning and exploratory data analysis, Excel statistical analysis, and an interactive Power BI dashboard.
+
 ---
 
 ## Business Problem
@@ -19,17 +21,15 @@ This project investigates four key areas:
 - **Vehicle characteristics:** How are listings distributed by mileage, fuel type, transmission, accident status, and clean-title information?
 - **Data quality and reporting reliability:** How do missing values, inconsistent categorical entries, and unusually high listed prices affect data interpretation and reporting?
 
-SQL Server, Python, and Excel are used to analyse and interpret the listing data, while Power BI is being used to develop an interactive dashboard.
-
 The analysis focuses on recorded vehicle listings. Listing volumes do not establish actual buyer demand or sales performance, and advertised prices are not confirmed selling prices.
 
 ---
 
 ## Dataset
 
-**Source:** Kaggle — Used Cars Dataset
+**Source:** [Kaggle — Used Cars Dataset](https://www.kaggle.com/datasets/mohamedesam10/used-cars-dataset)
 
-**Dataset Size:** 188,533 vehicle records
+**Dataset size:** 188,533 vehicle records
 
 Key fields include:
 
@@ -50,11 +50,11 @@ Key fields include:
 
 ## Tools Used
 
-- SQL Server and SQL Server Management Studio (SSMS)
-- Python (Pandas, NumPy)
-- Microsoft Excel
-- Microsoft Power BI
-- Git and GitHub
+- **SQL Server and SQL Server Management Studio (SSMS):** Data queries and business analysis
+- **Python (Pandas, NumPy, Matplotlib):** Data cleaning, profiling, and exploratory data analysis
+- **Microsoft Excel:** PivotTables, statistical summaries, and potential outlier assessment
+- **Microsoft Power BI:** Interactive dashboard development
+- **Git and GitHub:** Version control and project documentation
 
 ---
 
@@ -83,15 +83,16 @@ Key fields include:
 
 - Standardised inconsistent categorical values.
 - Assessed and handled missing values.
-- Checked for duplicate records.
-- Created derived fields to support analysis.
+- Checked for duplicate records and IDs.
+- Prepared a cleaned dataset for further analysis.
 
 ### 5. Python Exploratory Data Analysis
 
-- Examined price distributions using mean, median, and percentiles.
-- Investigated extreme recorded prices and tested their influence on summary statistics.
+- Examined price distributions using the mean, median, and percentiles.
+- Investigated extreme recorded prices and assessed their influence on summary statistics.
 - Compared mean and median prices across mileage groups and brands.
 - Analysed recorded prices and mileage by fuel type.
+- Used visualisations to explore price distributions and potential anomalies.
 
 ### 6. Excel Analysis
 
@@ -101,24 +102,49 @@ Key fields include:
 
 ### 7. Power BI Dashboard
 
-- Develop a single-page interactive dashboard summarising listing volumes, pricing patterns, and vehicle characteristics.
-- Enable exploration through filters for selected vehicle attributes.
+Created a single-page interactive dashboard to explore vehicle listings, pricing patterns, and vehicle characteristics.
+
+The dashboard includes:
+
+- KPI cards for total listings, median listed price, median mileage, and number of brands.
+- Top 10 brands by listing count.
+- Listing count by price band.
+- Median listed price by model year.
+- Median listed price by mileage band.
+- Price-band distribution by accident status.
+- Interactive filters for brand, model year, fuel type, and transmission.
+
+### Power BI Dashboard Preview
+
+![Vehicle Market Overview Power BI dashboard](Images/powerbi_dashboard.png)
 
 ---
 
-## Project Structure
+## Excel Analysis Previews
 
-```text
-Vehicle-Market-Analytics/
-├── Data/
-├── SQL/
-├── Python/
-├── Excel/
-├── PowerBI/
-├── Docs/
-├── image/
-└── README.md
-```
+### Price-Band Distribution by Accident Status
+
+A PivotTable and 100% stacked column chart compare the distribution of listing price bands across recorded accident-status groups.
+
+![Excel PivotTable analysis](Images/excel_pivot_table_analysis.png)
+
+### Statistical Analysis and Potential Outliers
+
+Descriptive statistics and the IQR method help assess the spread of recorded prices and identify observations for further investigation.
+
+![Excel statistical analysis](Images/excel_statistical_analysis.png)
+
+---
+
+## Key Findings
+
+- **Listing representation:** Ford has the highest listing volume in the dataset. Listing counts describe the dataset's composition rather than actual market demand.
+- **Price distribution:** The median listed price is 30,825, compared with a mean of approximately 43,878. The difference indicates that the distribution is influenced by higher-priced listings.
+- **Mileage and price:** Listings in lower-mileage bands generally have higher median listed prices than listings in higher-mileage bands.
+- **Vehicle age:** Older vehicles generally show higher mileage and lower average listed prices, although prices also vary across model years and the number of listings differs considerably between years.
+- **Potential price anomalies:** Extremely high recorded prices were investigated because they can influence averages and visualisations. Repeated high values warrant further review but do not, by themselves, prove that the records are incorrect.
+
+These findings describe patterns in the available dataset and should not be interpreted as evidence of causation, confirmed selling prices, or profitability.
 
 ---
 
@@ -130,3 +156,25 @@ Vehicle-Market-Analytics/
 - **Demand and performance:** Listing counts indicate the representation of brands and models in the dataset, not actual buyer demand, sales performance, or profitability.
 - **Data completeness:** Missing accident or clean-title information indicates that the relevant information was not recorded; it does not establish a negative vehicle history.
 - **Unusual prices:** Extremely high recorded prices were flagged for further investigation but have not been confirmed as data errors. No records were removed solely because of these unusually high prices.
+
+---
+
+## Project Structure
+
+```text
+Vehicle-Market-Analytics/
+├── Data/
+├── SQL/
+├── Python/
+├── Excel/
+│   └── Vehicle_Market_Analysis.xlsx
+├── PowerBI/
+│   └── Vehicle_Market_Overview.pbix
+├── Docs/
+├── Images/
+│   ├── excel_pivot_table_analysis.png
+│   ├── excel_statistical_analysis.png
+│   └── powerbi_dashboard.png
+└── README.md
+```
+
